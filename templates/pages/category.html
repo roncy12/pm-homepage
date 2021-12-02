@@ -1,0 +1,103 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}} 
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#if category.image}}
+    <p class="emthemesModez-category-image {{#if theme_settings.hide_category_image}}hide{{/if}}"><img src="{{getImage category.image 'zoom_size'}}"></p>
+{{/if}}
+<h1 class="page-heading page-heading--category {{#if theme_settings.hide_category_heading}}hide{{/if}}">{{category.name}}</h1>
+
+<div class="page">
+    {{#if theme_settings.categorypage_layout '!==' '1column'}}
+        {{#or category.faceted_search_enabled category.subcategories category.shop_by_price}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+        {{/or}}
+    {{/if}}
+
+    <main class="page-content">
+        {{#each breadcrumbs}}
+            {{#unless @first}}
+                {{#if name '===' 'Mobility Scooters '}}
+                    <div class="category-validate scooter-product" style="display: none;"></div>
+                {{else if name '===' 'Special Offers'}}
+                    <div class="category-validate scooter-product" style="display: none;"></div>      
+                {{else if name '===' 'Wheelchairs '}}
+                    <!--<div class="category-validate wheelchair-product" style="display: none;"></div>-->
+                {{else if name '===' 'Hospital Beds '}}
+                    <!--<div class="category-validate hospital-beds-product" style="display: none;"></div>-->
+                {{/if}}
+            {{/unless}}
+        {{/each}}
+        
+        {{#if category.subcategories}}
+            {{> components/emthemes-modez/sections/section-categories-grid categories=category.subcategories description=category.description}}
+        {{else}}
+            
+                <h2 class="emthemesModez-categoriesGrid-heading {{#if style}}emthemesModez-categoriesGrid-heading--{{style}}{{/if}}"><span>{{category.name}}</span></h2>
+        
+    <!--
+        COMMENT OUT 9/6/2021
+    <div class="emthemesModez-categoriesGrid-description"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/banner-inquiries.png?t=1578988375&_ga=2.35917602.38678324.1578960961-2022119561.1571639426"></div>-->
+
+             
+        {{/if}}
+           
+        <div id="product-listing-container">
+            
+            
+            {{{snippet 'categories'}}}
+
+            {{#if category.products}}
+                {{> components/category/product-listing}}
+            {{else}}
+                {{#unless category.subcategories}}
+                    <p>{{lang 'categories.no_products'}}</p>
+                {{/unless}}
+            {{/if}}
+        </div>
+    </main>
+</div>
+
+<!--
+<div class="emthemesModez-bannersContainer emthemesModez-bannersContainer--parallaxbag-categoryPage-threeBanners">
+    {{> components/emthemes-modez/banners/banner
+        url=(lang "parallaxbag.categorypage_three_banners.url1")
+        image=(lang "parallaxbag.categorypage_three_banners.image1")
+        title=(lang "parallaxbag.categorypage_three_banners.title1")
+    }}
+
+    {{> components/emthemes-modez/banners/banner
+        url=(lang "parallaxbag.categorypage_three_banners.url2")
+        image=(lang "parallaxbag.categorypage_three_banners.image2")
+        title=(lang "parallaxbag.categorypage_three_banners.title2")
+    }}
+
+    {{> components/emthemes-modez/banners/banner
+        url=(lang "parallaxbag.categorypage_three_banners.url3")
+        image=(lang "parallaxbag.categorypage_three_banners.image3")
+        title=(lang "parallaxbag.categorypage_three_banners.title3")
+    }}
+</div>
+-->
+
+{{> components/emthemes-modez/brand/carousel hide_heading=true hide_view_all=true type="static"}}
+
+{{/partial}}
+{{> layout/category-base}}

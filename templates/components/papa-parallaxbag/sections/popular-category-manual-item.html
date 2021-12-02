@@ -1,0 +1,11 @@
+<div class="parallaxbag-popularCategoriesSection-column">
+    <div class="parallaxbag-popularCategoriesSection-image"><a href="{{url}}"><img src="{{image}}" alt="{{name}}" /></a></div>
+    <h3 class="parallaxbag-popularCategoriesSection-categoryName"><a href="{{url}}">{{name}}</a></h3>
+    {{#if children}}
+    <ul class="parallaxbag-popularCategoriesSection-subcategories">
+        {{#each children}}
+        <li class="parallaxbag-popularCategoriesSection-subcategories-item"><a href="{{url}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>

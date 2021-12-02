@@ -1,0 +1,85 @@
+{{#partial "page"}}
+<script src="https://kit.fontawesome.com/46efe1203f.js" crossorigin="anonymous"></script>
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page">
+
+  
+
+    {{#if page.sub_pages}}
+    <nav class="navBar navBar--sub">
+        <ul class="navBar-section account-navigation">
+        {{#each page.sub_pages}}
+            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+    </nav>
+    {{/if}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        
+      
+        
+        {{/replace}}
+    </div>
+    
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</main>
+</div></div>
+  <div class="Get-in-touch">
+        
+        <h1>GET IN TOUCH</h1>
+        <p>If there is a product that you do not see on our site, but need, give us a call. We will be delighted to acquire it for you at the LOWEST PRICE IN THE USA. We hope you enjoy visiting our website. You can write to us at</p>
+            
+        </div>
+        <div class="get-in-touch-bttom">
+        <div class="get-in-touch-location">
+              
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/location-icon.png?t=1578622138&_ga=2.16314686.961613175.1578270359-2022119561.1571639426">   
+            
+        <div class="get-in-touch-desc">
+            
+        <h2>You Can Visit Us</h2><a class="" href="https://www.google.com/maps/place/Progress+Mobility+Scooters/@28.5534074,-81.3657324,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77aea2e36a525:0x52768850c6cc3555!8m2!3d28.5534027!4d-81.3635437">Progress Mobility LLC 1217 East Colonial Drive,Orlando, Florida 32803</a>
+            
+        </div>
+            
+            
+        
+        </div>
+
+        <div class="get-in-touch-contacts">
+            
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/phonecall-icon.png?t=1578622137&_ga=2.11579452.961613175.1578270359-2022119561.1571639426">
+             <div class="get-in-touch-desc">
+                 <h2>Give Us A Call</h2>
+            <a onclick="gtag_report_conversion()" class="">1-800-997-3077</a>
+              </div>
+        </div>
+
+        <div class="get-in-touch-emails">
+            
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/email-iocn.png?t=1578622138&_ga=2.255824896.961613175.1578270359-2022119561.1571639426">
+            
+                <div class="get-in-touch-desc">
+                    <h2>Send Us An Email</h2>
+            <a class="" href="">Sales@ProgressMobility.com</a>
+              </div>
+        </div>
+</div>
+
+{{/partial}}
+
+{{> layout/base}}

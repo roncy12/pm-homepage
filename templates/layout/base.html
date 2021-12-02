@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="no-js theme-style-{{theme_settings.theme_variation}} template-{{#replace '/' template}}-{{/replace}}{{#if theme_settings.hide_page_heading}} hide-page-heading{{/if}} layout-{{theme_settings.page_width}}" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <link rel="stylesheet" type="text/css" href="{{cdn '/assets/bootstrap4/css/bootstrap.css'}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/vendor/animate.css'}}}
+        {{ getFontsCollection }}
+        <script src="{{cdn '/assets/modernizr-custom.js'}}"></script>
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+        
+        <!--Start of Zendesk Chat Script-->
+
+        <script type="text/javascript">
+        
+        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+        
+        d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+        
+        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+        
+        $.src="https://v2.zopim.com/?tvbs2MxJrkyn878Wfzage5QlYxKoDfTF";z.t=+new Date;$.
+        
+        type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+        
+        
+        </script>
+        
+        <!--End of Zendesk Chat Script-->
+        
+        <meta name="google-site-verification" content="nuG5XA1qJDD0EtrVfCZhrzYwtFIegXhQZMqz_en_aAI" />
+        <meta name="facebook-domain-verification" content="hyuvgaxfy94tvfikl9n2xyvxy5tc0m" />
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+    </head>
+    <body class="{{#if theme_settings.product_uniform}}emthemesModez-productUniform{{/if}}">
+        {{{snippet 'header'}}}
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+        {{#if theme_settings.theme_variation '==' 'laparis2'}}
+            {{> components/common/header-laparis2}}
+        {{else}}
+            {{> components/common/header}}
+        {{/if}}
+        
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+        </script>
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+        <script type="text/javascript">
+            lazyload();
+            
+            let headCallImage = document.querySelectorAll(".header-logo-image");
+            lazyload(headCallImage);
+        </script>
+        <script type="text/javascript" src="//cdn.callrail.com/companies/204980279/4da3fe48842fb99b5c27/12/swap.js"></script> 
+
+    </body>
+</html>

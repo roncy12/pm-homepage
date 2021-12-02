@@ -1,0 +1,55 @@
+.productView {
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint("medium") {
+		display: block;
+		flex-direction: row;
+	}
+}
+
+.productView-images {
+	position: relative;
+	order: 1;
+
+	@include breakpoint("medium") {
+		position: sticky;
+        top: 0;
+	}
+}
+
+.productView-image {
+	min-width: auto;
+	min-height: auto;
+}
+
+.productView-details {
+	order: 2;
+}
+
+.productView-brand a {
+	text-decoration: none;
+}
+
+.productView-options {
+	margin-top: spacing("single");
+
+	.form-field.hide {
+		position: absolute;
+		clip: rect(1px, 1px, 1px, 1px);
+	}
+}
+
+.productView-description {
+	order: 3;
+
+	@include breakpoint("medium") {
+        clear: right;
+        float: right;
+        width: grid-calc(6, $total-columns);
+    }
+
+	.tabs-contents {
+		margin-bottom: 0;
+	}
+}

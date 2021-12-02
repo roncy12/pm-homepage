@@ -1,0 +1,31 @@
+.breadcrumbs {
+	padding: spacing("base") 0;
+	text-align: left;
+	border-bottom: container("border");
+
+	@include breakpoint("medium") {
+		margin-top: (-(spacing('single') + spacing("base")));
+	}
+}
+.breadcrumb {
+	font-family: stencilFontFamily("headings-font");
+	font-size: fontSize("smaller");
+	color: $color-primary;
+	text-transform: uppercase;
+
+	a {
+		color: inherit;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&.is-active > .breadcrumb-label {
+		color: inherit;
+	}
+
+	&:before {
+		color: inherit;
+	}
+}

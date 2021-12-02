@@ -1,0 +1,46 @@
+.card-figcaption-body-bottomGroup {
+	align-items: stretch;
+	padding: 0;
+}
+
+.card-figcaption-body-centerGroup {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+
+	.card-figcaption-button {
+		font-family: stencilFontFamily("headings-font");
+		font-size: fontSize("base");
+		font-weight: fontWeight("medium");
+		padding: spacing("base") spacing("single");
+		border-width: 2px;
+
+		&--addtocart {
+			.card-figcaption-button-icon {
+				display: none;
+			}
+		}
+	}
+
+	.card-text--brand {
+		margin: 0 0 spacing("base");
+		color: $color-textBase;
+		background-color: container("fill");
+		padding: 0 spacing("half");
+	}
+
+	.card-text--rating {
+		margin: spacing("base") 0 0;
+	}
+}
+
+.card-figcaption-button.quickview {
+	@include buttonVariant('primary');
+}
+
+

@@ -1,0 +1,37 @@
+// =============================================================================
+// Stencil Checkout  - Customize the checkout experience
+// =============================================================================
+//
+// This file is for checkout customizations for Default one-page checkout.
+//
+// -----------------------------------------------------------------------------
+
+
+// checkout page
+
+.checkoutHeader-content > .checkoutHeader-heading > .checkoutHeader-link > img#logoImage {
+    width: 300px!important;
+}
+
+.optimizedCheckout-header {
+    text-align: center!important;
+}
+
+.stepHeader-counter {
+    height: 2.69231rem;
+    width: 2.69231rem;
+    background-color: #045082!important;
+    border-radius: 50%;
+    text-align: center;
+    transition: transform 250ms ease;
+}
+
+.optimizedCheckout-buttonPrimary {
+    background-color: #47adca!important;
+    border-color: #47adca;
+   
+.stepHeader-title {
+    margin: 0 0 0 1.5rem;
+    min-width: 9rem;
+    color: #045082!important;
+}

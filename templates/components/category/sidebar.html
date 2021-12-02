@@ -1,0 +1,26 @@
+<nav>
+<!--
+    {{#if category.subcategories}}
+    <div class="sidebarBlock">
+        <h5 class="sidebarBlock-heading">{{category.name}}</h5>
+        <ul class="navList">
+            {{#each category.subcategories}}
+            <li class="navList-item">
+                <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+-->
+<!--
+<div class="Shop-all">
+    <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/sale-button.png?t=1576551344&_ga=2.208372122.946357131.1576456892-2022119561.1571639426">
+    </div>
+-->
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+{{else}}
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+</nav>

@@ -1,0 +1,284 @@
+// =============================================================================
+// HEADER (CSS)
+//
+// Custom header for theme emthemes-modez. Inherits css from the base theme.
+//
+// -----------------------------------------------------------------------------
+
+.header {
+    z-index: zIndex("low") + 5; // higher .sale-flag-side
+    
+    border-bottom: 1px solid stencilColor("header-borderColor");
+
+    @include breakpoint("medium") {
+        border-bottom: 0;
+    }
+}
+
+.header-logo {
+    height: $header-height;
+    display: flex;
+
+    a {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    @include breakpoint("medium") {
+        margin-top: 0;
+        margin-bottom: 0;
+        min-width: 25%;
+        height: auto;
+    }
+}
+
+.header-logo-text {
+    letter-spacing: letterSpacing("base");
+
+    @include breakpoint("medium") {
+        font-size: fontSize("base") * 3;
+    }
+}
+
+.emthemesModez-header-userSection {
+    padding: 0 spacing("single");
+
+    @include breakpoint("medium") {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+.emthemesModez-header-userSection--logo-center {
+    @include breakpoint("medium") {
+
+        .navUser--left {
+            order: 1;
+        }
+        .navUser--right {
+            order: 3;
+            text-align: right;
+        }
+        .header-logo {
+            order: 2;
+        }
+    }
+}
+
+
+.emthemesModez-header-userSection--logo-left {
+    @include breakpoint("medium") {
+        .emthemesModez-header-userSection-nav {
+            order: 2;
+        }
+
+        .header-logo {
+            order: 1;
+        }
+    }
+}
+
+
+.mobileMenu-toggle {
+    .mobileMenu-toggleIcon,
+    .mobileMenu-toggleIcon::before,
+    .mobileMenu-toggleIcon::after {
+        background: stencilColor("navUser-color");
+    }
+
+    &.is-open .mobileMenu-toggleIcon {
+        // scss-lint:disable NestingDepth
+        &::before,
+        &::after {
+            background-color: stencilColor("navUser-color");
+        }
+    }
+}
+
+// ============================================================================
+// Section before header, under top banner
+// ============================================================================
+.emthemesModez-header-topSection {
+    background: stencilColor("topHeader-backgroundColor");
+    color: stencilColor("topHeader-color");
+    font-size: fontSize("smallest");
+    text-transform: uppercase;
+    font-weight: fontWeight("medium");
+    letter-spacing: letterSpacing("larger");
+    border-top: 1px solid stencilColor("topHeader-borderColor");
+    border-bottom: 1px solid stencilColor("topHeader-borderColor");
+    display: none;
+
+    @include breakpoint("medium") {
+        display: block;
+    }
+
+    a {
+        color: inherit;
+    }
+    a:hover,
+    a:active {
+        color: stencilColor("topHeader-color-hover");
+    }
+
+    ul {
+        @include u-listReset();
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        li {
+            flex: 1;
+            padding: spacing("half") + spacing("quarter");
+            border-right: 1px solid stencilColor("topHeader-borderColor");
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+    }
+}
+
+
+// ============================================================================
+// Header variation fixed width
+// ============================================================================
+
+
+.header--fixed {
+    .emthemesModez-header-userSection {
+        @include breakpoint("medium") {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: layout("max") + ($container-padding * 4);
+            padding: 0 $container-padding;
+            position: relative;
+            width: layout("fixed");
+        }
+
+        @include breakpoint("large") {
+            padding: 0 ($container-padding * 4);
+        }
+    }
+
+    .header-logo--left {
+        @include breakpoint("medium") {
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+// ============================================================================
+// Header variation for LaParis Home 02
+// ============================================================================
+
+.header--laparis2 {
+
+    @include breakpoint("medium") {
+
+        .emthemesModez-header-userSection {
+            flex-wrap: wrap;
+        }
+
+        .navUser {
+            order: 1;
+            width: auto;
+            flex: 1 1 50%;
+            justify-content: flex-start;
+        }
+
+        .header-logo {
+            order: 2;
+        }
+
+        .navPages-container {
+            order: 3;
+            flex: 1 1 50%;
+            border-top: 0;
+            background-color: transparent;
+            padding: 0 spacing("single");
+            position: static;
+        }
+
+        .navPages {
+            text-align: right;
+            width: auto;
+        }
+    
+
+        .emthemesModez-header-userSection--logo-left {
+            .header-logo {
+                order: 1;
+            }
+
+            .navUser {
+                order: 3;
+                flex: none;
+            }
+
+            .navPages-container {
+                order: 2;
+                flex: none;
+            }
+        }
+
+        .emthemesModez-header-userSection--logo-right {
+            .header-logo {
+                order: 3;
+            }
+
+            .navUser {
+                order: 1;
+                flex: none;
+            }
+
+            .navPages-container {
+                order: 2;
+                flex: none;
+            }
+        }
+
+        .emthemesModez-header-userSection--logo-center {
+            flex-wrap: wrap;
+
+            .header-logo {
+                order: 2;
+            }
+
+            .navUser--left {
+                order: 1;
+                flex: none;
+            }
+
+            .navUser--right {
+                order: 3;
+                flex: none;
+            }
+
+            .navPages-container {
+                order: 4;
+                flex: 1 0 100%;
+            }
+
+            .navPages {
+                @include breakpoint("medium") {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+}
+
+.header--laparis2-carousel {
+    @include breakpoint("medium") {
+        position: absolute;
+        top: auto;
+        background-color: transparent;
+        border-bottom: 0;
+    }
+}

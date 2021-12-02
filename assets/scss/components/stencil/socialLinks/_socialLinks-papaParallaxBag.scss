@@ -1,0 +1,14 @@
+
+//
+// Alternate social link styles
+// -----------------------------------------------------------------------------
+
+.socialLinks--alt {
+	line-height: 1;
+
+	.icon {
+		svg {
+			fill: $socialLinks-alt-iconColor;
+		}
+	}
+}

@@ -1,0 +1,52 @@
+{{!--
+Arguments:
+    - categories (array)
+    - limit (number)
+    - style (string)
+    - use_static (boolean)
+    - heading (string)
+    - description (string)
+--}}
+<h2 class="emthemesModez-categoriesGrid-heading {{#if style}}emthemesModez-categoriesGrid-heading--{{style}}{{/if}}"><span>{{category.name}}</span></h2>
+<!-- commented out 09-06-2021
+    <div class="emthemesModez-categoriesGrid-description"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/banner-inquiries.png?t=1578988375&_ga=2.35917602.38678324.1578960961-2022119561.1571639426"></div>-->
+
+<section class="emthemesModez-categoriesGrid-section {{#if style}}emthemesModez-categoriesGrid-section--{{style}}{{/if}}">
+    <ul class="emthemesModez-categoriesGrid">
+        {{#each (limit categories limit)}}
+        <li class="emthemesModez-categoriesGrid-item">
+            <article class="emthemesModez-categoriesGrid-card">
+                {{#if ../use_static}}
+                <figure class="emthemesModez-categoriesGrid-figure">
+                    <a href="{{url}}"><img class="emthemesModez-categoriesGrid-image" src="{{lang (concat 'emthemesmodez.categories_grid.cat_img_' @index)}}" alt="{{name}}" /></a>
+                    <figcaption>
+                        <div class="figcaption-body"></div>
+                    </figcaption>
+                </figure>
+                {{else if image}}
+                <figure class="emthemesModez-categoriesGrid-figure">
+                    <a href="{{url}}"><img class="emthemesModez-categoriesGrid-image" src="{{getImage image 'category_card_size'}}" alt="{{name}}" /></a>
+                    <figcaption>
+                        <div class="figcaption-body"></div>
+                    </figcaption>
+                </figure>
+                {{/if}}
+                <div class="emthemesModez-categoriesGrid-body">
+                    <h4 class="emthemesModez-categoriesGrid-name">
+                        <a href="{{url}}">{{name}}</a>
+                    </h4>
+                    <div class="emthemesModez-categoriesGrid-productsCount">
+                    {{#typeof product_count}}{{/typeof}}
+                        {{#if product_count '>' 0}}
+                        {{lang 'emthemesmodez.categories_grid.products_count' count=product_count}}
+                        {{/if}}
+                        {{#or (if count '>' 0) (if count '===' 0)}}
+                        {{lang 'emthemesmodez.categories_grid.products_count' count=count}}
+                        {{/or}}
+                    </div>
+                </div>
+            </article>
+        </li>
+        {{/each}}
+    </ul>
+</section>

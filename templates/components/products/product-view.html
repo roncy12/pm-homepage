@@ -1,0 +1,609 @@
+
+     <div id="shade"></div>
+     <div id="modalDelete">
+        <div id="modal1">
+         <div class="modal-content">
+                
+         {{#eachIndex (split product.description '<!-- split -->')}}
+  
+            
+    {{#if index '==' '5' }}
+          
+                            	
+                {{{item}}}
+            
+    {{/if}}         
+            
+            
+ {{/eachIndex}}           
+          
+            <a class="modal-close" id="close">Close</a>
+             </div>
+        </div>
+    </div>
+<div class="productView">
+    {{#each product.reviews.messages}}
+        {{#if error}}
+            {{>components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{>components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+
+    <section class="productView-details upper">
+        <div class="productView-product">
+            <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+                <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+            </h2>
+            <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+
+            
+            {{#if product.call_for_price}}
+                <p class="productView-price">
+                    <span>{{product.call_for_price}}</span>
+                </p>
+            {{/if}}
+            <div class="productView-price">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{> components/products/price price=product.price schema_org=schema}}
+                {{else}}
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+            </div>
+            <div class="pt-mpe">
+
+            </div>
+    <div id="mobile-slick-id" class="mobileImage-productPage">
+    
+    </div>
+    <div id="buttonSelectorMove"></div>
+            <style>
+                .__pt-info-link {
+                    display: none;
+                } 
+                .__pt-logo {
+                    bottom: 5px;
+                }
+                .pt-mpe {
+                    cursor: pointer;
+                }
+            </style>
+            <div class="productView-rating"{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
+                {{#if settings.show_product_rating}}
+                    {{#if product.num_reviews '>' 0}}
+                        {{#if schema}}
+                            <meta itemprop="ratingValue" content="{{product.rating}}">
+                            <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                            <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                        {{/if}}
+                    {{/if}}
+                    {{> components/products/ratings rating=product.rating}}
+                    <span class="productView-reviewLink">
+                        {{#if product.num_reviews '>' 0}}
+                            <a href="{{product.url}}#product-reviews">
+                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                            </a>
+                        {{else}}
+                            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                        {{/if}}
+                    </span>
+                {{/if}}
+                {{#if settings.show_product_reviews}}
+                    <span class="productView-reviewLink">
+                        <a href="{{product.url}}{{#if is_ajax}}#writeReview{{/if}}"
+                           {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+                           {{lang 'products.reviews.new'}}
+                        </a>
+                    </span>
+                    {{> components/products/modals/writeReview}}
+                {{/if}}
+            </div>
+            {{product.detail_messages}}
+            {{#if schema}}
+                {{#if product.main_image}}
+                    <div itemscope itemtype="http://schema.org/ImageObject">
+                        <meta itemprop="name" content="{{product.name}}" />
+                        <meta itemprop="contentUrl" content="{{getImage product.main_image 'product_size' (cdn ../theme_settings.default_image_product)}}" />
+                        <meta itemprop="description" content="{{product.main_image.alt}}" />
+                    </div>
+                    <meta itemprop="image" content="{{getImage product.main_image 'product_size' (cdn ../theme_settings.default_image_product)}}" />
+                {{/if}}
+            {{/if}}
+            
+<!--
+            <div class="Quick-overview">
+                <ul>
+                    <li>Free Shipping</li>
+                    <li>CTS</li>
+                    <li>LED Lighting</li>
+                    <li>Free Upgraded 18ah Bettery Pack</li>
+                    <li>Charger Point in Tiller</li>
+                    <li>Changeable Color Panels</li>
+                </ul>
+            </div>
+-->
+            <div class="animated-image">
+                {{#each product.custom_fields}}
+                    {{#if name '===' 'Animated Image'}}
+                        {{{value}}}
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="QuickSpecs">
+                  <dl class="productView-info">
+            
+            
+                {{#if product.shipping}}
+                    {{#if product.shipping.calculated}}
+                        <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                        <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                    {{else}}
+                        {{#if product.shipping.price.value '===' 0}}
+                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                        {{else}}
+                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                    </dl>
+ {{#if product.options}}
+    <!--        
+    <div class="custom-button-buy">
+        <a class="Custom-buy"><img class="" src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/custom-buy.png?t=1575251757&_ga=2.15344255.816533315.1575249131-2022119561.1571639426">CUSTOMIZE AND BUY</a>
+    </div>
+    -->
+ {{else}}
+  <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                  data-cart-item-add>
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+
+                    {{#each product.customizations}}
+                        {{{dynamicComponent 'components/products/customizations'}}}
+                    {{/each}}
+
+                <div data-product-option-change style="display:none;">
+                    
+                    {{#each product.options}}
+                        {{#if (merge this product_custom_fields=../product.custom_fields)}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+
+                {{#if product.event_date}}
+                    <div class="form-field">
+                        <label class="form-label form-label--alternate form-label--inlineSmall">
+                        {{product.event_date.name}}:
+                        <small>{{lang 'common.required'}}</small>
+                        </label>
+                        <select class="form-select form-select--date" name="EventDate[Mth]" required>
+                            <option value="">{{lang 'common.month'}}</option>
+                            {{#enumerate 1 12}}
+                                <option value="{{this}}">{{getShortMonth this}}</option>
+                            {{/enumerate}}
+                        </select>
+                        <select class="form-select form-select--date" name="EventDate[Day]" required>
+                            <option value="">{{lang 'common.day'}}</option>
+                            {{#enumerate 1 31}}
+                                <option value="{{this}}">{{this}}</option>
+                            {{/enumerate}}
+                        </select>
+                        <select class="form-select form-select--date" name="EventDate[Yr]" required>
+                            <option value="">{{lang 'common.year'}}</option>
+                            {{#enumerate product.event_date.earliest_year product.event_date.latest_year}}
+                                <option value="{{this}}" >{{this}}</option>
+                            {{/enumerate}}
+                        </select>
+                    </div>
+                {{/if}}
+
+                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                    <label class="form-label form-label--alternate">
+                        {{lang 'products.current_stock'}}
+                        <span data-product-stock>{{product.stock_level}}</span>
+                    </label>
+
+                </div>
+
+                {{#if product.can_purchase}}
+
+                    <div class="form-field form-field--increments {{#if theme_settings.hide_quantity_box}}hide{{/if}}">
+                        <label class="form-label form-label--alternate"
+                               for="qty[]">{{lang 'products.quantity'}}</label>
+
+                        <div class="form-increment" data-quantity-change>
+                            <button class="button button--icon" data-action="dec">
+                                <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-down"/>
+                                    </svg>
+                                </i>
+                            </button>
+                            <input class="form-input form-input--incrementTotal"
+                                   id="qty[]"
+                                   name="qty[]"
+                                   type="tel"
+                                   value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                                   data-quantity-min="{{product.min_purchase_quantity}}"
+                                   data-quantity-max="{{product.max_purchase_quantity}}"
+                                   min="1"
+                                   pattern="[0-9]*"
+                                   aria-live="polite">
+                            <button class="button button--icon" data-action="inc">
+                                <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-up"/>
+                                    </svg>
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="alertBox productAttributes-message" style="display:none">
+                        <div class="alertBox-column alertBox-icon">
+                            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+                        </div>
+                        <p class="alertBox-column alertBox-message"></p>
+                    </div>
+                
+               
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        <div class="form-action">
+                            <button id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                                    value=""><i class="fas fa-cart-plus"></i>{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'Add to Cart'}}{{/if}}</button>
+                        </div>
+                         {{{snippet 'product_addtocart'}}}
+                    {{/or}}
+                {{/if}}
+                {{#if product.out_of_stock}}
+                    {{#if product.out_of_stock_message}}
+                        {{>components/common/alert-error product.out_of_stock_message}}
+                    {{else}}
+                        {{>components/common/alert-error (lang 'products.sold_out')}}
+                    {{/if}}
+                {{/if}}
+
+            </form>
+  {{/if}}
+  <!--
+       <script>
+           
+       
+           
+    $(document).ready(function(){
+  $(".Custom-buy").click(function(){
+    $(".product-custom-buy").removeClass("triggerCustom");
+      $("li.fas").addClass("Newtab");
+       $(".tabs-contents").addClass("Newtab");
+      $("a.tab-title").addClass("Newtab");
+      $(".tab-product-section").addClass("Newtab");
+       $('html,body').animate({
+        scrollTop: $(".product-page-bottom-content").offset().top -90},
+        "slow");
+      
+  });
+});
+                
+                      
+                      </script>
+                      -->
+                      
+                      
+                      
+                      
+     <div class="product-description-specs">   
+         
+  <div class="quick-specs">              
+<div class="quick-specs-head-border">                      
+<h3 class="Quick-specs">Quick Specs<span><a id="anchorTarget">Full Product Overview</a></span></h3>
+</div>
+                <div class="quick-specs-padding">
+                {{#each product.custom_fields}}
+                      
+                      {{#all (if name '!=' 'Features') (if name '!=' 'Brochure Link') (if name '!=' 'Specifications URL') (if name '!=' 'Animated Image') (if name '!=' 'Bing Ads?') (if name '!=' 'UPC') (if name '!=' 'MPN')  (if name '!=' 'Google Shopping Titles') (if name '!=' 'Shopzilla') (if name '!=' 'Google Shopping?') (if name '!=' 'Key Featured') (if name '!=' 'Shopping.com') (if name '!=' 'Size')}}
+ 
+   
+                      <dt class="productView-info-name">{{name}}:</dt>
+                      <dd class="productView-info-value">{{{value}}}</dd>
+ 
+                      
+
+                      {{/all}}
+                     
+                         
+                   
+                      
+                        
+
+                      
+                
+                     
+<!--
+
+                    {{#if name '===' 'Top Speed'}}
+                      
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                    {{else if name '===' 'Capacity'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                     
+                     {{else if name '===' 'Turning Radius'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                     {{else if name '===' 'Heaviest Part'}}
+                 
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                     {{else if name '===' 'Driving Range'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                     {{else if name '===' 'Manufacturer'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                      {{else if name '===' 'Size'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                      {{else if name '===' 'Condition'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                      
+                      {{else if name '===' 'Key Featured'}}
+                     
+                            <dt class="productView-info-name">{{name}}:</dt>
+                            <dd class="productView-info-value">{{{value}}}</dd>
+                      
+                    {{/if}}
+-->
+                      
+
+                      
+                      
+                {{/each}}
+      </div>
+                      
+             
+   
+            </div>    
+                   </div>
+    
+    <div class="custom-button-buy">
+        <a class="Custom-buy"><img class="lazyload" data-src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/customizebuylogo.png?t=1602570182&_ga=2.166139389.297642094.1602462033-1335674609.1584404257">CUSTOMIZE & BUY</a>
+    </div>
+    
+    <div class="payment-logos" id="product-view-logos">
+                        
+        <!--<a onclick="gtag_report_conversion()" href="tel:1-800-997-3077"><img src="https://cdn11.bigcommerce.com/s-h7ti6c9310/stencil/0fbdd750-6e7a-0136-6996-71bd3cb7e197/e/435f9b30-2057-0137-158b-0242ac110019/img/loading.svg" class="lazyload" data-src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/general-inuiries-track-order-line.png?t=1603327099&_ga=2.196565999.217028436.1603069027-1335674609.1584404257"></a>-->
+        <div class="do-you-need-help">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/call-icon-pdp.jpg">
+            <p>
+             <label>Do you have any question about this product?</label><br>
+            We are here to help! <a onclick="gtag_report_conversion()" href="tel:1800-997-3077">1-800-997-3077</a>
+            </p>
+        </div>
+                
+    </div>
+                   
+                   
+            <!--
+            <div class="animated-image">
+                {{#each product.custom_fields}}
+                    {{#if name '===' 'Animated Image'}}
+                        {{{value}}}
+                    {{/if}}
+                {{/each}}
+            </div>
+            -->
+                      
+          {{#eachIndex (split product.description '<!-- split -->')}}
+  
+            
+    {{#if index '==' '5' }}
+           
+
+        {{#lengthEqual item 16}}
+    
+    {{else}}
+           
+                <a id="start" style="display:none;" class="product-video-button"><!--<img class="" src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/play-circle-fontawesome.png?t=1574989079&_ga=2.174095394.1219596991.1574644185-2022119561.1571639426">Click Here to Watch Video Demonstration--></a>
+         
+    {{/lengthEqual}}    
+
+      {{/if}}         
+            
+            
+ {{/eachIndex}}  
+<!--
+        <script type="text/javascript">
+            var modal= document.getElementById('modal1');
+            var shade= document.getElementById('shade');
+            //document.getElementById('start').onclick= function() {
+             //   modal.style.display=shade.style.display= 'block';
+            //};
+            //document.getElementById('close').onclick= function() {
+             //   modal.style.display=shade.style.display= 'none';
+            //};
+
+            // This code is a workaround for IE6's lack of support for the
+            // position: fixed style.
+            //
+            if (!('maxHeight' in document.body.style)) {
+                function modalsize() {
+                    var top= document.documentElement.scrollTop;
+                    var winsize= document.documentElement.offsetHeight;
+                    var docsize= document.documentElement.scrollHeight;
+                    shade.style.height= Math.max(winsize, docsize)+'px';
+                    modal.style.top= top+Math.floor(winsize/3)+'px';
+                };
+                modal.style.position=shade.style.position= 'absolute';
+                window.onscroll=window.onresize= modalsize;
+                modalsize();
+            }
+        </script>
+        -->
+ <!--
+            <div class="general-inquiry" style="text-align:center; border-top: 1px solid #e3e3e3; padding-top: 4%; padding-bottom: 3%;">
+                <a href="tel:1-800-997-3077"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/general-inquiries.png?t=1602748558&_ga=2.128791887.297642094.1602462033-1335674609.1584404257"></a>
+            </div>
+-->
+            <!--<div class="product-details-icons">
+                
+                <div class="bottom-icon-productDetails">
+                <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/layer-43.png?t=1575254911&_ga=2.108669643.816533315.1575249131-2022119561.1571639426">
+                <h3>ORDER ONLINE</h3>
+               
+                </div>
+                
+                <div class="bottom-icon-productDetails">
+                <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/layer-42.png?t=1575254912&_ga=2.108669643.816533315.1575249131-2022119561.1571639426">
+                <h3>EASY CHECKOUT</h3>
+                
+                </div>
+                
+                <div class="bottom-icon-productDetails">
+                <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/layer-41.png?t=1575254912&_ga=2.108669643.816533315.1575249131-2022119561.1571639426">
+                <h3>100% SECURE</h3>
+             
+                </div>
+            
+            
+            </div>-->
+          
+        </div>
+    </section>
+
+    <section class="productView-images{{#if theme_settings.productpage_horizontal_thumbnails}} productView-images--horizontal{{/if}}" data-image-gallery>
+        
+        <div class="orange-buy-now" id="orange-buy-now-mobile" style="display:none;">
+            <button>BUY NOW</button>
+        </div>
+        {{#if product.images.length '>' 1}}
+        <ul class="productView-imageCarousel-nav"
+            id="productView-imageCarousel-nav-{{product.id}}"
+            data-image-gallery-nav{{#if theme_settings.productpage_horizontal_thumbnails}} data-image-gallery-nav-horizontal="true"{{/if}}>
+            {{#each product.images}}
+                <li class="productView-imageCarousel-nav-item{{#startsWith this.data ../product.main_image.data}} slick-current{{/startsWith}}">
+                    <img src="https://cdn11.bigcommerce.com/s-h7ti6c9310/stencil/0fbdd750-6e7a-0136-6996-71bd3cb7e197/e/435f9b30-2057-0137-158b-0242ac110019/img/loading.svg" class="lazyload" data-src="{{getImage this 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                </li>
+            {{/each}}
+            
+            <!--
+            {{#if product.videos.list.length '>' 0}}
+                
+                {{#each product.videos}}
+                    <li class="productView-imageCarousel-nav video-gallery-list">
+                        <button>
+                            <figure src="//www.youtube.com/embed/{{product.featured.id}}" style="display:none;"></figure>
+                            <img src="//i.ytimg.com/vi/{{id}}/default.jpg"/>
+                        </button>
+                    </li>
+                {{/each}}
+                
+            {{/if}}
+            -->
+        </ul>
+        {{/if}}
+        
+        {{#if product.images}}
+        <ul class="productView-imageCarousel-main" id="productView-imageCarousel-main-{{product.id}}" data-image-gallery-main>
+            {{#each product.images}}
+                <li class="productView-imageCarousel-main-item{{#startsWith this.data ../product.main_image.data}} slick-current{{/startsWith}}">
+                    <a href="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}"><img src="https://cdn11.bigcommerce.com/s-h7ti6c9310/stencil/0fbdd750-6e7a-0136-6996-71bd3cb7e197/e/435f9b30-2057-0137-158b-0242ac110019/img/loading.svg" class="lazyload" data-src="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" alt=""></a>
+                </li>
+            {{/each}}
+        </ul>
+        {{/if}}
+        
+        <div class="orange-buy-now" style="display:none;">
+            <button>BUY NOW</button>
+        </div>
+        
+       
+        
+       
+
+
+
+
+   
+        
+        
+
+
+        
+
+
+ 
+
+      
+      
+  
+        
+ 
+
+        {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+            {{#if theme_settings.product_sale_badges '===' 'sash'}}
+                <div class="sale-flag-sash">
+                    <span class="sale-text">{{lang 'emthemesmodez.on_sale'}}</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'topright'}}
+                <div class="sale-flag-side">
+                    <span class="sale-text">{{lang 'emthemesmodez.on_sale'}}</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'burst'}}
+                <div class="starwrap">
+                    <div class="sale-flag-star"></div>
+                    <div class="sale-text-burst">{{lang 'emthemesmodez.on_sale'}}</div>
+                </div>
+            {{/if}}
+        {{/or}}
+
+
+     
+    </section>
+
+
+
+   
+    
+</div>
+
+<div id="previewModal" class="modal modal--large" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Ads Tag Created By FeedArmy V2.01 for product page -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-993681973"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-993681973');
+</script>
+<script>
+  gtag('event', 'view_item', {
+    'send_to': 'AW-993681973',
+    'value': '{{product.price.with_tax.value}}',
+    'items': [{
+      'id': '{{ product.id }}',
+      'google_business_vertical': 'retail'
+    }]
+  });
+</script>

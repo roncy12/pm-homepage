@@ -1,0 +1,306 @@
+<div class="product-page-bottom-content" id="tabsTarget">
+    <div class="tab-product-section">
+<ul class="tabs" data-tab role="tablist">
+
+    
+    <li class="tab is-active" role="presentational">
+    <a class="tab-title overview" href="#tab-overview" role="tab" tabindex="0" aria-selected="true">Overview</a>
+    </li>
+    
+  
+    
+         {{#eachIndex (split product.description '<!-- split -->')}}
+  
+            
+    {{#if index '==' '3' }}
+           
+
+        {{#lengthEqual item 24}}
+    
+    {{else}}
+              <li class="tab" role="presentational">
+         <a class="tab-title specifications" href="#tab-specifications" role="tab" tabindex="0" aria-selected="false">Specifications</a>
+    </li>
+    
+    {{/lengthEqual}}    
+
+      {{/if}}         
+            
+    
+    {{#if index '==' '6' }}
+           
+
+        {{#lengthEqual item 18}}
+    
+    {{else}}
+           
+    <li class="tab" role="presentational">
+         <a class="tab-title warranty" href="#tab-warranty" role="tab" tabindex="0" aria-selected="false" >Warranty</a>
+    </li>
+               
+    {{/lengthEqual}}    
+
+      {{/if}}  
+    
+    
+            
+ {{/eachIndex}}
+    
+     
+    
+     <li class="tab" role="presentational">
+         <a class="tab-title shipping" href="#tab-shipping" role="tab" tabindex="0" aria-selected="false" >Shipping</a>
+    </li>
+    
+     <li class="tab" role="presentational">
+         <a class="tab-title whyBuy" href="#tab-whyBuy" role="tab" tabindex="0" aria-selected="false" >Why Buy from Us?</a>
+    </li>
+</ul>
+
+<div class="tabs-contents">
+
+
+    
+{{#eachIndex (split product.description '<!-- split -->')}}
+    
+
+    
+     {{#if index '==' '0' }}
+            
+           
+                
+                <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-overview">
+                    {{{item}}}
+                </div>
+                
+            
+    {{/if}}
+
+
+    
+ 
+
+  
+{{#if index '==' '3' }} 
+
+  <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-specifications">{{{item}}}</div>
+
+    
+    
+{{/if}}
+    
+    
+
+   
+
+    
+    
+    {{#if index '==' '6' }}  
+    
+       
+    
+    
+    
+    <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-warranty">{{{item}}}</div>
+    
+    
+    
+    {{/if}}
+    
+  {{/eachIndex}}  
+
+
+
+ 
+     
+     <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-shipping">
+         <h2>Shipping Information</h2>
+      
+<p>Progress Mobility offers FREE Shipping on all purchases over $89 anywhere in the continental USA. Items are shipped either on the day of purchase or the next business day. We aim to deliver all items within 3-5 Business days. All items are delivered via FedEx, UPS, USPS or a reputable and reliable local carrier.</p> 
+            <div class="shipping-information-img">
+         <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/free-shipping-image.png?t=1578281179&_ga=2.213948703.961613175.1578270359-2022119561.1571639426">
+        </div>
+    </div>
+    
+     <div role="tabpanel" aria-hidden="true" class="tab-content" id="tab-whyBuy">
+    
+    <h2>Why Buy From Us?</h2>
+    <div class="why-buy-from-us_Product-desc-container">
+         <div class="why-buy-from-us_Product-desc">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/shipping-01.png?t=1578281027&_ga=2.7256250.961613175.1578270359-2022119561.1571639426">
+            <h3>FREE Shipping:</h3> 
+            <p class="the-p-content">All purchases over $89 we ship for Free anywhere within Continental USA. </p>
+         </div>
+         <div class="why-buy-from-us_Product-desc">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/tax-01.png?t=1578281253&_ga=2.176181421.961613175.1578270359-2022119561.1571639426">
+            <h3>NO Sales Tax:</h3>
+            <p class="the-p-content">You do not pay any sales tax on purchases (Unless Delivered to FL State)</p>
+         </div>
+        
+        <div class="why-buy-from-us_Product-desc">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/lowest-price-01.png?t=1578281254&_ga=2.20438192.961613175.1578270359-2022119561.1571639426">
+            <h3>Lowest Price Guarantee:</h3> <p class="the-p-content">If you find any Mobility Scooter, Hospital Bed, Carrier etc Cheaper Online, we will beat it.</p>
+         </div>
+        
+        <div class="why-buy-from-us_Product-desc">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/customer-service-01.png?t=1578281253&_ga=2.176181421.961613175.1578270359-2022119561.1571639426">
+            <h3>Excellent Customer Service:</h3> <p class="the-p-content">From the moment you first contact us we will offer you the very best advice and service to find the item you need at the price that suits you. </p>
+         </div>
+        
+         <div class="why-buy-from-us_Product-desc">
+            <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/top-brand-01.png?t=1578281252&_ga=2.176181421.961613175.1578270359-2022119561.1571639426">
+            <h3>Brand Names:</h3><p class="the-p-content">At Progress Mobility we offer all the Top Name Brands. We are always able to offer our customers the Mobility Scooter, Bed or Lift to suit their particular needs and budget. Call us today and we will be delighted to be of service. </p>
+        </div>
+        
+    </div>
+         
+    </div>
+        </div>
+</div>
+<div class="product-custom-buy triggerCustom">
+    
+ 
+<div class="productView">
+  
+     <section class="productView-details custom">
+           <h3 id="sidepanel-customize"><img class="" src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/customizebuylogo.png?t=1602570182&_ga=2.166139389.297642094.1602462033-1335674609.1584404257">CUSTOMIZE & BUY</h3> 
+        <div class="productView-options">
+            {{#if product.release_date }}
+                <p>{{product.release_date}}</p>
+            {{/if}}
+
+            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                  data-cart-item-add>
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" value="{{product.id}}"/>
+
+
+                    {{#each product.customizations}}
+                        {{{dynamicComponent 'components/products/customizations'}}}
+                    {{/each}}
+
+                <div data-product-option-change style="display:none;">
+                    
+                    {{#each product.options}}
+                        {{#if (merge this product_custom_fields=../product.custom_fields)}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/if}}
+                    {{/each}}
+                </div>
+
+                {{#if product.event_date}}
+                    <div class="form-field">
+                        <label class="form-label form-label--alternate form-label--inlineSmall">
+                        {{product.event_date.name}}:
+                        <small>{{lang 'common.required'}}</small>
+                        </label>
+                        <select class="form-select form-select--date" name="EventDate[Mth]" required>
+                            <option value="">{{lang 'common.month'}}</option>
+                            {{#enumerate 1 12}}
+                                <option value="{{this}}">{{getShortMonth this}}</option>
+                            {{/enumerate}}
+                        </select>
+                        <select class="form-select form-select--date" name="EventDate[Day]" required>
+                            <option value="">{{lang 'common.day'}}</option>
+                            {{#enumerate 1 31}}
+                                <option value="{{this}}">{{this}}</option>
+                            {{/enumerate}}
+                        </select>
+                        <select class="form-select form-select--date" name="EventDate[Yr]" required>
+                            <option value="">{{lang 'common.year'}}</option>
+                            {{#enumerate product.event_date.earliest_year product.event_date.latest_year}}
+                                <option value="{{this}}" >{{this}}</option>
+                            {{/enumerate}}
+                        </select>
+                    </div>
+                {{/if}}
+
+                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                    <label class="form-label form-label--alternate">
+                        {{lang 'products.current_stock'}}
+                        <span data-product-stock>{{product.stock_level}}</span>
+                    </label>
+
+                </div>
+
+                {{#if product.can_purchase}}
+
+                    <div class="form-field form-field--increments {{#if theme_settings.hide_quantity_box}}hide{{/if}}">
+                        <label class="form-label form-label--alternate"
+                               for="qty[]">{{lang 'products.quantity'}}</label>
+
+                        <div class="form-increment" data-quantity-change>
+                            <button class="button button--icon" data-action="dec">
+                                <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-down"/>
+                                    </svg>
+                                </i>
+                            </button>
+                            <input class="form-input form-input--incrementTotal"
+                                   id="qty[]"
+                                   name="qty[]"
+                                   type="tel"
+                                   value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                                   data-quantity-min="{{product.min_purchase_quantity}}"
+                                   data-quantity-max="{{product.max_purchase_quantity}}"
+                                   min="1"
+                                   pattern="[0-9]*"
+                                   aria-live="polite">
+                            <button class="button button--icon" data-action="inc">
+                                <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-up"/>
+                                    </svg>
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="alertBox productAttributes-message" style="display:none">
+                        <div class="alertBox-column alertBox-icon">
+                            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+                        </div>
+                        <p class="alertBox-column alertBox-message"></p>
+                    </div>
+                
+                    <div class="payment-logos">
+                        
+                <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/payment-options-logos.png?t=1575515648&_ga=2.219483472.816533315.1575249131-2022119561.1571639426">
+                
+                </div>
+                
+                <div class="Financing-option">
+                
+                    <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/paytomorrow-tag-1000px-7-large.png?t=1576552817&_ga=2.207831066.946357131.1576456892-2022119561.1571639426">
+                    
+                </div>
+                
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        <div class="form-action">
+                            <button id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--primary" type="submit"
+                                    value=""><i class="fas fa-cart-plus"></i>{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'Add to Cart'}}{{/if}}</button>
+                        </div>
+                         {{{snippet 'product_addtocart'}}}
+                    {{/or}}
+                {{/if}}
+                {{#if product.out_of_stock}}
+                    {{#if product.out_of_stock_message}}
+                        {{>components/common/alert-error product.out_of_stock_message}}
+                    {{else}}
+                        {{>components/common/alert-error (lang 'products.sold_out')}}
+                    {{/if}}
+                {{/if}}
+
+            </form>
+</div>
+
+    </section>
+
+    
+    </div>    
+</div>    
+    
+</div>

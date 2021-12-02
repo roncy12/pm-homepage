@@ -1,0 +1,64 @@
+<div class="navPage-subMenu navPage-subMenu--mega5" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list" id="bordered-part">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+         <li><h2 class="nav-title">Beds</h2></li>
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    
+                    <ul class="navPage-childList" id="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+    
+      <ul class="navPage-subMenu-list column-half">
+        <li><h2 class="nav-title">BRANDS</h2></li>
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/drive-medical/">Drive Medical</a>
+        </li> 
+            <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/ev-rider/">EV Rider</a>
+        </li>
+          <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/invacare/">Invacare</a>
+        </li>
+         <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/medline/">Medline</a>
+        </li> 
+          <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/pride-mobility/">Pride Mobility</a>
+        </li> 
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="/hospital-beds/shop-by-brand/progress-mobility/">Progress Mobility</a>
+        </li> 
+     
+            
+    </ul>
+    
+    <!-- <div class="navPage-subMenu-banner-list">-->
+    <!--    <div class="navPage-subMenu-banner-item"><a href="{{url}}"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/hospital-beds-banner-edit.jpg?t=1602221258&_ga=2.181134176.654533023.1602030489-1335674609.1584404257" alt="Parallax Bag"></a></div>-->
+        
+    <!--</div>-->
+    
+</div>

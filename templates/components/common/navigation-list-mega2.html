@@ -1,0 +1,37 @@
+<!--
+<div class="navPage-subMenu navPage-subMenu--mega2" id="navPages-{{#if type '===' 'category'}}{{id}}{{else}}page-{{@index}}{{/if}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item">
+                {{#if children}}
+                    <a
+                        class="navPage-subMenu-action navPages-action has-subMenu"
+                        href="{{url}}"
+                        data-collapsible="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}"
+                        data-collapsible-disabled-breakpoint="medium"
+                        data-collapsible-disabled-state="open"
+                        data-collapsible-enabled-state="closed">
+                        {{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                        {{> components/emthemes-modez/common/navigation-label}}
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{#if ../../type '===' 'category'}}{{id}}{{else}}page-{{@../index}}-{{@index}}{{/if}}">
+                        {{#each children}}
+                        <li class="navPage-childList-item">
+                            <a class="navPage-childList-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}} {{> components/emthemes-modez/common/navigation-label}}</a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+    <div class="navPage-subMenu-banner-list">
+        <div class="navPage-subMenu-banner-item"><a href="#"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/3_1.jpg?_ga=2.110857921.558730255.1575939122-2022119561.1571639426" alt="Parallax Bag"></a></div>
+        <div class="navPage-subMenu-banner-item"><a href="#"><img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/EW1.jpg?_ga=2.110857921.558730255.1575939122-2022119561.1571639426" alt="Parallax Bag"></a></div>
+    </div>
+</div>-->

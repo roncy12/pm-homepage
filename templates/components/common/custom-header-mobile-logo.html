@@ -1,0 +1,27 @@
+<div class="row header-logos logo-navv">
+    <div class="col-lg-4 col-md-4 col-sm-4 logo-nav">
+        <a href="{{urls.home}}" id="header-logo-block-image">
+            {{#if settings.store_logo.image}}
+                <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+            {{else}}
+                <span class="header-logo-text">{{settings.store_logo.title}}</span>
+            {{/if}}
+        </a>
+        <div class="talk-live-header" id="mobile-header-num" style="display:none;">
+            <span>Call us: </span><a href="tel:1800-997-3077"><u>1-800-997-3077</u></a>
+        </div>
+    </div>   
+</div>
+<div class="navigation-sticky-search">
+    <div class="{{#if css_class}}{{css_class}} {{/if}}visibleQuickSearch-form-container" data-search="quickSearch">
+        <form class="form" action="{{urls.search}}">
+            <fieldset class="form-fieldset">
+                <div class="form-field">
+                    <label class="is-srOnly" for="search_queryA">{{lang "search.quick_search.input_label"}}</label>
+                    <input class="form-input form-input--small" data-search-quick name="search_query" id="search_queryA" data-error-message="{{lang 'search.error.empty_field'}}"
+                        placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

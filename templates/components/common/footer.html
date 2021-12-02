@@ -1,0 +1,128 @@
+{{#if banners.bottom}}
+<div class="banners" data-banner-location="bottom">
+    {{#each banners.bottom}}
+        {{#if (occurrences this 'emthemesModezBannersBlock') '===' 0}}
+            <div class="banner">
+                {{{this}}}
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+{{/if}}
+
+{{#if banners.bottom}}
+    {{#each banners.bottom}}
+        {{#if (occurrences this 'emthemesModezBannersBlockFullscreenBanner') '>' 0}}
+            {{{this}}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+<footer class="footer" role="contentinfo">
+
+    {{!> components/emthemes-modez/newsletter/section}}
+
+    <div class="container">
+
+        <section class="footer-info">
+
+            <article class="footer-info-col col-fourth" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">{{lang 'footer.links.col1_heading'}}</h5>
+                <ul class="footer-info-list">
+                    {{#if (lang 'footer.links.col1_url1') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url1'}}">{{lang 'footer.links.col1_title1'}}</a></li>
+                    {{/if}}
+                  
+                    {{#if (lang 'footer.links.col1_url3') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url3'}}">{{lang 'footer.links.col1_title3'}}</a></li>
+                    {{/if}}
+                        <li><a href="/return-policy">Return Policy</a></li>
+                    {{#if (lang 'footer.links.col1_url4') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url4'}}">{{lang 'footer.links.col1_title4'}}</a></li>
+                    {{/if}}
+                    {{#if (lang 'footer.links.col1_url5') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col1_url5'}}">{{lang 'footer.links.col1_title5'}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+            
+            
+            
+            <article class="footer-info-col col-fourth" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">{{lang 'footer.links.col2_heading'}}</h5>
+                <ul class="footer-info-list">
+                    {{#if (lang 'footer.links.col1_url1') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url1'}}">{{lang 'footer.links.col2_title1'}}</a></li>
+                    {{/if}}
+                     {{#if (lang 'footer.links.col2_url2') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url2'}}">{{lang 'footer.links.col2_title2'}}</a></li>
+                 {{/if}}
+                    {{#if (lang 'footer.links.col2_url4') '!=' ' '}}
+                        <li><a href="{{lang 'footer.links.col2_url4'}}">{{lang 'footer.links.col2_title4'}}</a></li>
+                    {{/if}}
+                </ul>
+            </article>
+
+            <article class="footer-info-col col-fourth" data-section-type="footer-webPages">
+                <h5 class="footer-info-heading">Get in Touch</h5>
+                <ul class="footer-info-list contact-info">
+                
+               
+                    
+                 <li> <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/callme.png?t=1574647675&_ga=2.78730900.1219596991.1574644185-2022119561.1571639426"><a onclick="gtag_report_conversion();" href="tel:1-800-997-3077">Call Us Toll Free</a><p><span onclick="gtag_report_conversion()">1-800-997-3077</span></p>
+                    </li>
+                    <li>
+                   <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/footert.png?t=1574647675&_ga=2.179343652.1219596991.1574644185-2022119561.1571639426"> <a href="https://www.google.com/maps/place/Progress+Mobility+Scooters/@28.5534074,-81.3657324,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77aea2e36a525:0x52768850c6cc3555!8m2!3d28.5534027!4d-81.3635437">Progress Mobility Acquisition LLC 1217 East Colonial
+Drive,Orlando, Florida 32803</a>
+                    
+                    </li>
+                    
+                   
+                </ul>
+            </article>
+
+            <article class="footer-info-col col-fourth" data-section-type="storeInfo">
+               <div class="footer-logos">
+                <a class="logo-footer-custom" href="#"><img src="https://cdn11.bigcommerce.com/s-h7ti6c9310/stencil/0fbdd750-6e7a-0136-6996-71bd3cb7e197/e/435f9b30-2057-0137-158b-0242ac110019/img/loading.svg" class="lazyload" data-src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/logo.png?t=1574124027&_ga=2.14258615.1219596991.1574644185-2022119561.1571639426"></a>
+                   <p class="mobile-hide">Currently we do not sell to</br> Florida residents, we are </br>sorry for the inconvenience.</p>
+               </div>
+            </article>
+
+
+            {{#if theme_settings.shop_by_brand_show_footer}}
+                {{> components/emthemes-modez/brand/carousel}}
+            {{/if}}
+
+        </section>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+
+            <article class="powered-by">
+                {{#if theme_settings.show_copyright_footer}}
+                    &copy; <span id="copyright_year"></span> {{settings.store_name}}.
+                    <script type="text/javascript">
+                        document.getElementById("copyright_year").innerHTML = new Date().getFullYear();
+                    </script>
+                {{/if}}
+
+             
+            </article>
+
+           
+    
+            {{#if theme_settings.show_geotrust_ssl_seal}}
+                <article class="footer-geotrust-ssl-seal">
+                    {{> components/common/geotrust-ssl-seal}}
+                </article>
+            {{/if}}
+        </div>
+    </div>
+</footer>
+<!--Back to Top-->
+<div class="back-to-top" back-to-top>
+    <a>
+        <svg><use xlink:href="#icon-back-to-top" /></svg>
+    </a>
+</div>

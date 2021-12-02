@@ -1,0 +1,78 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page">
+
+  
+
+    {{#if page.sub_pages}}
+        <nav class="navBar">
+            <ul class="navBar-section">
+                {{#each page.sub_pages}}
+                    <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </nav>
+    {{/if}}
+
+    
+        {{#if forms.contact.success}}
+    <div class="page-content contacts page-content--centered">
+        <div class="thankyou-contacts">
+        <div class="img-thankyou">
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/thank-you-01.png?t=1579245584&_ga=2.41511840.38678324.1578960961-2022119561.1571639426">
+        </div>
+            {{{lang 'forms.contact_us.successful' shopPath=urls.home}}}
+            </div>
+        {{else}}
+          <h1 class="page-heading">{{page.title}}</h1>
+      
+            <p>{{{page.content}}}</p>
+          <div class="page-content contacts page-content--centered">
+            {{> components/page/contact-us-form}}
+        {{/if}}
+            </div>
+            <div class="get-in-touch-right">
+        <div class="get-in-touch">
+              
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/location-icon.png?t=1578622138&_ga=2.16314686.961613175.1578270359-2022119561.1571639426">   
+            
+        <div class="get-in-touch-desc">
+            
+        <h2>You Can Visit Us</h2><a class="" href="https://www.google.com/maps/place/Progress+Mobility+Scooters/@28.5534074,-81.3657324,17z/data=!3m1!4b1!4m5!3m4!1s0x88e77aea2e36a525:0x52768850c6cc3555!8m2!3d28.5534027!4d-81.3635437">Progress Mobility LLC 1217 East Colonial Drive,Orlando, Florida 32803</a>
+            
+        </div>
+            
+            
+        
+        </div>
+
+        <div class="get-in-touch">
+            
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/phonecall-icon.png?t=1578622137&_ga=2.11579452.961613175.1578270359-2022119561.1571639426">
+             <div class="get-in-touch-desc">
+                 <h2>You Can Give Us A Call</h2>
+            <a onclick="gtag_report_conversion()" class="" href="tel:1-800-997-3077">1-800-997-3077</a>
+                 <p>8AM TO 10PM, 7 DAYS A WEEK!</p>
+              </div>
+        </div>
+
+        <div class="get-in-touch">
+            
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/email-iocn.png?t=1578622138&_ga=2.255824896.961613175.1578270359-2022119561.1571639426">
+            
+                <div class="get-in-touch-desc">
+                    <h2>Send Us An Email</h2>
+            <a class="" href="">Sales@ProgressMobility.com</a>
+              </div>
+        </div>
+</div> 
+
+    
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

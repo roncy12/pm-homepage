@@ -1,0 +1,58 @@
+<div class="header-upper">
+    
+   <nav class="navUser navUser--right">
+        <ul class="navUser-section navUser-section--alt">
+        
+            <li class="navUser-item navUser-item">
+                <a
+                    class="navUser-action"
+                   
+                    href="/about-progress-mobility">
+                    
+                    <span class="navUser-item-cartLabel">About Us</span>
+                </a>
+    
+             
+            </li>
+            
+            <li class="navUser-item navUser-item">
+                <a
+                    class="navUser-action"
+                   
+                    href="/contacts/">
+                    
+                    <span class="navUser-item-cartLabel">Contact Us</span>
+                </a>
+    
+             
+            </li>
+            
+            {{#if theme_settings.navPages-show-cart}}
+            <li class="navUser-item navUser-item--cart hide-desktop">
+                <a
+                    class="navUser-action"
+                    data-cart-preview
+                    href="{{urls.cart}}">
+                    <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-handbag"></span>
+                    <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                </a>
+            </li>
+            {{else}}
+            <li class="navUser-item navUser-item--cart">
+                <a
+                    class="navUser-action"
+                    data-cart-preview
+                    data-dropdown="cart-preview-dropdown"
+                    data-options="align:right"
+                    href="{{urls.cart}}">
+                    <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-cart"></span>
+                    <span class="navUser-item-cartLabel">Cart</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                </a>
+    
+                <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+            </li>
+            {{/if}}
+
+        </ul>
+    </nav>
+</div>

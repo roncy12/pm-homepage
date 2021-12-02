@@ -1,0 +1,43 @@
+<div class="emthemesModez-section emthemesModez-section--parallaxbag-popularCategories">
+	<div class="parallaxbag-popularCategoriesSection">
+		<h2 class="page-heading">{{lang 'parallaxbag.popular_categories.heading'}}</h2>
+		<div class="parallaxbag-popularCategoriesSection-columns">
+
+			{{#each categories}}
+				{{#if id '==' (lang 'parallaxbag.popular_categories.category_1.id')}}
+					{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_1.img')}}
+				{{else if children}}
+					{{#each children}}
+						{{#if id '==' (lang 'parallaxbag.popular_categories.category_1.id')}}
+							{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_1.img')}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
+			{{/each}}
+
+			{{#each categories}}
+				{{#if id '==' (lang 'parallaxbag.popular_categories.category_2.id')}}
+					{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_2.img')}}
+				{{else if children}}
+					{{#each children}}
+						{{#if id '==' (lang 'parallaxbag.popular_categories.category_2.id')}}
+							{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_2.img')}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
+			{{/each}}
+
+			{{#each categories}}
+				{{#if id '==' (lang 'parallaxbag.popular_categories.category_3.id')}}
+					{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_3.img')}}
+				{{else if children}}
+					{{#each children}}
+						{{#if id '==' (lang 'parallaxbag.popular_categories.category_3.id')}}
+							{{> components/papa-parallaxbag/sections/popular-category-manual-item image=(lang 'parallaxbag.popular_categories.category_3.img')}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
+			{{/each}}
+		</div>
+	</div>
+</div>

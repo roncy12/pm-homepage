@@ -1,0 +1,11 @@
+<div class="{{#if css_class}}{{css_class}} {{/if}}visibleQuickSearch-form-container" data-search="quickSearch">
+    <form class="form" action="{{urls.search}}">
+        <fieldset class="form-fieldset">
+            <div class="form-field">
+                <label class="is-srOnly" for="search_query1">{{lang "search.quick_search.input_label"}}</label>
+                <input class="form-input form-input--small" data-search-quick name="search_query" id="search_query1" data-error-message="{{lang 'search.error.empty_field'}}"
+                    placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+            </div>
+        </fieldset>
+    </form>
+</div>

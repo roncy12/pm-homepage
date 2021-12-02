@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="no-js theme-style-{{theme_settings.theme_variation}} template-{{#replace '/' template}}-{{/replace}}{{#if theme_settings.hide_page_heading}} hide-page-heading{{/if}} layout-{{theme_settings.page_width}}" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <link rel="stylesheet" type="text/css" href="{{cdn '/assets/bootstrap4/css/bootstrap.css'}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/vendor/animate.css'}}}
+        {{ getFontsCollection }}
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+        
+        <!--Start of Zendesk Chat Script-->
+        
+        <!--End of Zendesk Chat Script-->
+        
+        <meta name="google-site-verification" content="nuG5XA1qJDD0EtrVfCZhrzYwtFIegXhQZMqz_en_aAI" />
+        
+       
+    </head>
+    <body class="{{#if theme_settings.product_uniform}}emthemesModez-productUniform{{/if}}">
+        {{{snippet 'header'}}}
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+      
+        {{> components/common/header}}
+       
+        <div class="body custom-home-page">
+            {{#block "hero"}} {{/block}}
+            <div class="container">
+                {{#block "page"}} {{/block}}
+            </div>
+            {{> components/common/modal}}
+            {{> components/common/modal-fullscreen}}
+        </div>
+        
+        {{> components/common/footer }}
+
+        <script src="{{cdn '/assets/modernizr-custom.js'}}"></script>
+        <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+        </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(event) {
+            //Start of Zendesk Chat Script
+            
+                window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+                
+                d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+                
+                _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+                
+                $.src="https://v2.zopim.com/?tvbs2MxJrkyn878Wfzage5QlYxKoDfTF";z.t=+new Date;$.
+                
+                type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+            
+            //End of Zendesk Chat Script
+            
+            
+            lazyload();
+            
+            let headCallImage = document.querySelectorAll(".header-logo-image");
+            lazyload(headCallImage);
+        });
+        </script>
+        <script>
+                    $(document).ready(function(){
+                       $("#mobile-header-num").insertBefore("#mobile-header-logo");
+                       $("header.header--fixed.is-open").attr('style', 'top: 10% !important');
+                       if ($(window).width() > 815) {
+                                    $("#mobile-header-num").attr('style', 'display: none !important');
+                                      console.log('More than 815');
+                            }
+                        $(window).scroll(function() {
+                            if ($(this).scrollTop() > 0) {
+                                $("#mobile-header-num").attr('style', 'display: none !important');
+                                $('nav.navUser.navUser--right, a.mobileMenu-toggle').attr('style', 'top: 25%');
+                                
+                                if($('header.header.header--fixed.is-open:visible')){
+                                    // console.log('visible');
+                                    $('a.mobileMenu-toggle.is-open').attr('style','top: 10% !important');
+                                }
+                               
+                                // console.log("Nagscroll")
+                            } else {
+                                
+                                if ($(window).width() < 815) {
+                                    $("#mobile-header-num").attr('style', 'display: block !important');
+                                    //   console.log('Less than 815');
+                                }
+                                $('nav.navUser.navUser--right, a.mobileMenu-toggle').attr('style', 'top: 50%');
+                                
+                            }
+                        });
+                    
+                    });
+        </script>
+        <script type="text/javascript" src="//cdn.callrail.com/companies/204980279/4da3fe48842fb99b5c27/12/swap.js"></script> 
+    </body>
+</html>

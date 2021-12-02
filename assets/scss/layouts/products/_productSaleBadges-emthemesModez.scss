@@ -1,0 +1,33 @@
+.sale-flag-side {
+	font-size: fontSize("smallest");
+	font-weight: fontWeight("normal");
+	text-transform: uppercase;
+	border-radius: 0;
+	line-height: lineHeight("base");
+	height: auto;
+	padding: spacing("eighth") spacing("half");
+	left: spacing("half");
+	top: spacing("half");
+	background: transparent;
+	color: stencilColor("color_text_product_sale_badges");
+	border: 2px solid stencilColor("color_badge_product_sale_badges");
+
+	.product:hover & {
+	    background-color: transparent;
+	}
+	
+
+	+ .sale-flag-side {
+		top: spacing("half") + lineHeight("base") + spacing("eighth") * 2 + spacing("quarter");
+	}
+
+	.productView-images & {
+		left: spacing("half") + spacing("base");
+	}
+}
+
+.sale-flag-side--custom {
+	color: stencilColor("color_text_product_sale_badges_alt");
+	border: 2px solid stencilColor("color_badge_product_sale_badges_alt");
+}
+

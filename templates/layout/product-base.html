@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="no-js theme-style-{{theme_settings.theme_variation}} template-{{#replace '/' template}}-{{/replace}}{{#if theme_settings.hide_page_heading}} hide-page-heading{{/if}} layout-{{theme_settings.page_width}}" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <link rel="stylesheet" type="text/css" href="{{cdn '/assets/bootstrap4/css/bootstrap.css'}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/vendor/animate.css'}}}
+        {{ getFontsCollection }}
+        
+
+        {{{head.scripts}}}
+        {{{head.rsslinks}}}
+
+        {{inject 'themeSettings' theme_settings}}
+        {{inject 'genericError' (lang 'common.generic_error')}}
+        {{inject 'maintenanceMode' settings.maintenance}}
+        {{inject 'urls' urls}}
+        {{{snippet 'htmlhead'}}}
+        
+        
+        
+        <!--Start of Zendesk Chat Script-->
+        <script type="text/javascript">
+        window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+        d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+        $.src="https://v2.zopim.com/?tvbs2MxJrkyn878Wfzage5QlYxKoDfTF";z.t=+new Date;$.
+        type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+        </script>
+        <!--End of Zendesk Chat Script-->
+        
+        <meta name="google-site-verification" content="nuG5XA1qJDD0EtrVfCZhrzYwtFIegXhQZMqz_en_aAI" />
+        
+        <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    <body class="{{#if theme_settings.product_uniform}}emthemesModez-productUniform{{/if}}">
+        <div id="pagerBody">
+            
+        {{{snippet 'header'}}}
+        <div class="icons-svg-sprite">{{> components/common/icons/icon-defs }}</div>
+
+        {{#if settings.privacy_cookie}}
+            {{> components/common/cookie}}
+        {{/if}}
+
+      
+            {{> components/common/header}}
+       
+<div class="body custom-home-page">
+    {{#block "hero"}} {{/block}}
+    <div class="no-container product-page-only">
+        {{#block "page"}} {{/block}}
+    </div>
+    {{> components/common/modal}}
+    {{> components/common/modal-fullscreen}}
+</div>
+        {{> components/common/footer }}
+        <script src="{{cdn '/assets/js/jquery/3.4.1/jquery.min.js'}}"></script>
+        
+        <script src="{{cdn '/assets/modernizr-custom.js'}}"></script>
+
+        <script src="{{cdn '/assets/js/bundle.js'}}"></script>
+        <script>
+            // Exported in app.js
+            window.stencilBootstrap("{{template_file}}", {{jsContext}}).load();
+        </script>
+        
+        <!--loading div-->
+        </div>
+                
+        <div id="loading"></div>
+        
+        <script>
+            $( document ).ready(function() {
+                var numItems = $('.tab-product-section ul.tabs li.tab').length
+
+                if (numItems === 1) {
+                    $(".tab-product-section ul.tabs li.tab").css("width", "100%");
+                } else if (numItems === 2) {
+                    $(".tab-product-section ul.tabs li.tab").css("width", "50%");
+                } else if (numItems === 3) {
+                    $(".tab-product-section ul.tabs li.tab").css("width", "33.33%");
+                } else if (numItems === 4) {
+                    $(".tab-product-section ul.tabs li.tab").css("width", "25%");
+                } else if (numItems === 5) {
+                    $(".tab-product-section ul.tabs li.tab").css("width", "20%");
+                }
+            });
+
+            $(function() {
+
+              var minimized_elements = $('p.the-p-content');
+
+              minimized_elements.each(function() {
+                var t = $(this).text();
+                if (t.length < 100) return;
+
+                $(this).html(
+                  t.slice(0, 100) + '<span>... </span><a href="#" class="more">Read More</a>' +
+                  '<span style="display:none;">' + t.slice(100, t.length) + ' <a href="#" class="less">Hide</a></span>'
+                );
+
+              });
+
+              $('a.more', minimized_elements).click(function(event) {
+                event.preventDefault();
+                $(this).hide().prev().hide();
+                $(this).next().show();
+              });
+
+              $('a.less', minimized_elements).click(function(event) {
+                event.preventDefault();
+                $(this).parent().hide().prev().show().prev().show();
+              });
+
+            });
+        
+        </script>
+        
+        <script>
+            // vertical center image on scroll
+        
+            /*var _top = (($('.navPages-container').height() / $( window ).height()) + (($( window ).height() - $('.productView-images').height()) / $( window ).height() / 2 )) * 100;
+            $('.productView-images').css('top',  _top +"%");*/
+           
+            
+           // max image height
+            /*$( "body" ).append( "<style> .slick-slider .slick-list, .slick-slider .slick-track { max-height:" + $('.productView-details.upper').height() +"px !important; } .productView-imageCarousel-main-item a, .productView-imageCarousel-main-item img { max-height:" + $('.productView-details.upper').height() +"px !important; }</style>");*/
+            
+            
+        </script>
+
+   
+        
+        {{{footer.scripts}}}
+        {{{snippet 'footer'}}}
+
+        <script type="text/javascript">
+            lazyload();
+            
+//            let headCallImage = document.querySelectorAll(".header-logo-image");
+//            lazyload(headCallImage);
+        
+            (function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/Nnmu7W8rDQ02LThko39NnB84KsKcxH6vLKYt7f4Q/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+            
+            $(document).ready(function(){
+                $(".Custom-buy").click(function(){
+                    //$(".product-custom-buy").removeClass("triggerCustom");
+                    //$("li.fas").addClass("Newtab");
+                    //$(".tabs-contents").addClass("Newtab");
+                    //$("a.tab-title").addClass("Newtab");
+                    //$(".tab-product-section").addClass("Newtab");
+                    $('html,body').animate({
+                        scrollTop: $(".product-page-bottom-content").offset().top -90},
+                    "slow");
+                });
+                
+                $("#anchorTarget").click(function(){
+                    if($(window).width() < 1370 ) {
+                        $('html,body').animate({
+                            scrollTop: $(".product-page-bottom-content").offset().top -160},
+                        "slow");
+                    } else {
+                        $('html,body').animate({
+                            scrollTop: $(".product-page-bottom-content").offset().top -200},
+                        "slow");
+                    }
+                });
+                
+                $(".orange-buy-now").click(function(){
+                    if($(window).width() < 1370 ) {
+                        $('html,body').animate({
+                            scrollTop: $(".product-custom-buy").offset().top -160},
+                        "slow");
+                    } else {
+                        $('html,body').animate({
+                            scrollTop: $(".product-custom-buy").offset().top -200},
+                        "slow");
+                    }
+                });
+                
+                
+            });
+            
+            $(document).on('click', '.yotpo-bottomline.pull-left.star-clickable', function(){
+                console.log('yotpo-clicked');
+                $('#reviewsTab')[0].click();
+                $('html, body').animate({
+                    scrollTop: $('#reviewsTab').offset().top - 100
+                }, 500);
+            });
+            //modal
+            var modal= document.getElementById('modal1');
+            var shade= document.getElementById('shade');
+            //document.getElementById('start').onclick= function() {
+             //   modal.style.display=shade.style.display= 'block';
+            //};
+            //document.getElementById('close').onclick= function() {
+             //   modal.style.display=shade.style.display= 'none';
+            //};
+
+            // This code is a workaround for IE6's lack of support for the
+            // position: fixed style.
+            //
+            if (!('maxHeight' in document.body.style)) {
+                function modalsize() {
+                    var top= document.documentElement.scrollTop;
+                    var winsize= document.documentElement.offsetHeight;
+                    var docsize= document.documentElement.scrollHeight;
+                    shade.style.height= Math.max(winsize, docsize)+'px';
+                    modal.style.top= top+Math.floor(winsize/3)+'px';
+                };
+                modal.style.position=shade.style.position= 'absolute';
+                window.onscroll=window.onresize= modalsize;
+                modalsize();
+            }
+            
+        //$(document).ready(function(){
+        window.addEventListener('load', function () {
+            if( $(".productView-imageCarousel-nav").length ){
+                $(".productView-imageCarousel-nav-item.slick-current").trigger("click");
+            }
+            
+            if( $("#start").length ) {
+                $videoDiv = "<div id='videoIframe'></div>";
+                $iframeVideoLink = $('#modal1 iframe').get();
+                $selectorButton = "<div id='selectorButton'><button class='changeButton' id='changeImages'>Back to Images</button></div>";
+                $videoButton = "<div id='selectorButton'><button class='changeButton' id='changeVideo'>Click to Watch Video Demonstration</button></div>"
+                
+                //$(".productView-imageCarousel-main").hide();
+                //$(".productView-imageCarousel-main-item").hide();
+                $($videoDiv).insertAfter(".productView-imageCarousel-main");
+                $('#videoIframe').append($iframeVideoLink);
+                $('#videoIframe').append($selectorButton);
+                $($videoButton).insertAfter(".productView-images .productView-imageCarousel-main .slick-list.draggable");
+                
+                $("#changeImages").click(function(){
+                    $(".productView-imageCarousel-nav-item.slick-current").trigger("click");
+                    $(".productView-imageCarousel-main-item").show();
+                    $(".productView-imageCarousel-main").show();
+                    $("#videoIframe").hide();
+                    $("#changeImages").hide();
+                    $("#changeVideo").show();
+                });
+                
+                $("#changeVideo").click(function(){
+                    $("#videoIframe").show();
+                    $(".productView-imageCarousel-main-item").hide();
+                    $(".productView-imageCarousel-main").hide();
+                    $("#changeVideo").hide();
+                    $("#changeImages").show();
+                });
+                
+                $(".productView-imageCarousel-nav-item").click(function(){
+                    $(".productView-imageCarousel-main-item").show();
+                    $(".productView-imageCarousel-main").show();
+                    $("#videoIframe").hide();
+                    $("#changeImages").hide();
+                    $("#changeVideo").show();
+                });
+                
+                $("#start").hide();
+                //$("#start").insertAfter(".productView-images .productView-imageCarousel-main .slick-list.draggable");
+            }
+        });
+        //});
+        
+        /*
+        function onReady(callback) {
+            var intervalID = window.setInterval(checkReady, 1000);
+        
+            function checkReady() {
+                if (document.getElementsByTagName('body')[0] !== undefined) {
+                    window.clearInterval(intervalID);
+                    callback.call(this);
+                }
+            }
+        }
+        
+        function show(id, value) {
+            document.getElementById(id).style.display = value ? 'block' : 'none';
+        }
+        
+        onReady(function () {
+            show('pagerBody', true);
+            show('loading', false);
+        });
+        */
+            
+            
+      
+            
+        </script>
+          <script>
+
+
+        
+
+            $(document).ready(function() { 
+ if ($(window).width() <= 420) {
+            $("section.productView-images").appendTo("#mobile-slick-id");
+            $("#selectorButton").appendTo("#buttonSelectorMove");
+        }
+});
+
+            
+
+</script>
+<script type="text/javascript" src="//cdn.callrail.com/companies/204980279/4da3fe48842fb99b5c27/12/swap.js"></script> 
+    </body>
+</html>

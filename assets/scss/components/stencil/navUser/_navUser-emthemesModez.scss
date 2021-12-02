@@ -1,0 +1,130 @@
+.navUser-section + .navUser-section {
+	margin-left: 0;
+}
+
+@include breakpoint("medium") {
+	.navUser {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		position: static;
+		padding: 0;
+
+		.emthemesModez-header-userSection--logo-right & {
+			justify-content: flex-start;
+		}
+
+		&:first-child .navUser-section:first-child .navUser-item:first-child .navUser-action:first-child {
+			padding-left: spacing("half");
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.emthemesModez-header-userSection--logo-center .navUser--right .navUser-section:first-child .navUser-item:first-child .navUser-action:first-child {
+		padding-left: spacing("half");
+
+		&:before {
+			display: none;
+		}
+	}
+
+	.navUser--left {
+		justify-content: flex-start;
+
+		.emthemesModez-header-userSection--logo-left & {
+			justify-content: flex-end;
+		}
+	}
+
+	.navUser--hasQuickSearch {
+		.emthemesModez-header-userSection--logo-left &,
+		.emthemesModez-header-userSection--logo-right & {
+			margin-top: spacing("half");
+		}
+	}
+
+	.navUser-section {
+		float: none;
+	}
+
+	.navUser-action {
+		padding-left: 0;
+
+		&:before {
+			content: '|';
+			color: container("borderColor");
+			padding-right: spacing("half");
+		}
+	}
+
+	.navUser-or {
+		display: none;
+	}
+}
+
+
+
+.navUser-action {
+	text-transform: none;
+	font-weight: fontWeight("normal");
+	font-size: remCalc(20);
+	padding: spacing("quarter");
+	
+	@include breakpoint("medium") {
+		font-size: fontSize("smaller");
+		padding: spacing("base") spacing("half") spacing("base") 0;
+	}
+}
+
+
+
+.navUser-action > * {
+	/*vertical-align: middle;*/
+}
+
+.navUser-item-icon {
+	font-size: remCalc(20);
+	margin-right: spacing("quarter");
+
+	@include breakpoint("medium") {
+		font-size: fontSize("small");
+	}
+}
+
+.dropdown--quickSearch.is-open {
+	margin-top: spacing("double");
+}
+
+.navUser-item--account .navUser-or + .navUser-action {
+	@include breakpoint("medium") {
+		margin-right: 0;
+	}
+}
+
+
+.navUser-item-giftCertIcon,
+.navUser-item-cartIcon,
+.navUser-item-searchIcon {
+	@include breakpoint("medium") {
+		margin-right: 0;
+	}
+
+	@include breakpoint("xlarge") {
+		margin-right: spacing("quarter");
+	}
+}
+
+.navUser-item-giftCertLabel,
+.navUser-item-cartLabel,
+.navUser-item-searchLabel {
+	@include breakpoint("medium") {
+		display: inline;
+	}
+
+	@include breakpoint("xlarge") {
+		display: inline;
+	}
+}

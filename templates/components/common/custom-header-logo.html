@@ -1,0 +1,80 @@
+<div class="row header-logos logo-navv">
+<div class="col-lg-4 col-md-4 col-sm-4 logo-nav">
+    <a href="{{urls.home}}" id="header-logo-block-image">
+        {{#if settings.store_logo.image}}
+            <img class="header-logo-image" src="{{getImage settings.store_logo.image 'logo_size'}}" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+        {{else}}
+            <span class="header-logo-text">{{settings.store_logo.title}}</span>
+        {{/if}}
+    </a>
+    <div class="talk-live-header" id="mobile-header-num" style="display:none;">
+        <span>Call us: </span><a onclick="gtag_report_conversion()" href="tel:1800-997-3077"><u>1-800-997-3077</u></a>
+    </div>
+</div>
+    
+    <div class="col-lg-4 col-md-4 col-sm-4 tel-nav">
+
+<div class="talk-live-first-div">
+        <div class="talk-live-header">
+            <h3>Talk to a Live Mobility Expert</h3>
+            <a onclick="gtag_report_conversion()" href="tel:1800-997-3077">1-800-997-3077</a>
+        </div>
+       
+        <img src="https://cdn11.bigcommerce.com/s-vz6unvhe9k/product_images/uploaded_images/header-customer-support.png?t=1612501014&_ga=2.123681227.1154238132.1612494366-2022119561.1571639426">
+        
+</div>
+        <div class="customer-service-header">
+            <p><span class="sales-header-text">Sales:</span><a>8am - 9pm(Mon - Fri EST)</a></p>
+            <p>9am - 6pm(Sat - Sun EST)</p>
+            <p><span class="sales-header-text">Customer Service:</span>9am - 5pm(Mon - Fri EST)</p>
+        </div>
+
+
+    </div>
+
+ <div class="col-lg-4 col-md-4 col-sm-4 search-nav">
+     
+     <nav class="navUser navUser--left navUser--hasQuickSearch">
+    {{> components/common/currency-selector}}
+
+    <ul class="navUser-section navUser-section--alt">
+       
+        <li class="navUser-item">
+            {{> components/emthemes-modez/search/quick-search-form css_class="navUser-action navUser-action--quickSearch"}}
+        </li>
+        
+        {{#if theme_settings.navPages-show-cart}}
+        <li class="navUser-item navUser-item--cart hide-desktop">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                href="{{urls.cart}}">
+                <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-handbag"></span>
+                <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+        </li>
+        {{else}}
+        <li class="navUser-item navUser-item--cart">
+            <a
+                class="navUser-action"
+                data-cart-preview
+                data-dropdown="cart-preview-dropdown"
+                data-options="align:right"
+                href="{{urls.cart}}">
+                <span class="navUser-item-icon navUser-item-cartIcon emthemesModez-icon-cart"></span>
+                <span class="navUser-item-cartLabel">Cart</span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+            </a>
+
+            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+        </li>
+        {{/if}}
+    </ul>
+
+    {{> components/emthemes-modez/search/quick-search-dropdown}}
+</nav>
+
+     
+    </div>
+
+    
+</div>
