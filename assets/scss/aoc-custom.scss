@@ -919,6 +919,9 @@ footer.footer:before {
         width: 100% !important;
         height: 100% !important;
     }
+    mobile-header-num{
+        display: none;
+    }
 
 // Override Header
 @media (max-width: 1390px){
@@ -976,6 +979,7 @@ footer.footer:before {
         color: #fff;
         text-align: center;
         line-height: 18px;
+
     }
     nav.navUser.navUser--right, a.mobileMenu-toggle {
         top: 52%;
