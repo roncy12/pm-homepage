@@ -906,7 +906,19 @@ footer.footer:before {
   
 }
 
-
+//Overrd
+    .why-buy-video {
+        position: relative;
+        padding-bottom: 28.25%;
+        height: 0;
+    }
+    .why-buy-video > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
 
 // Override Header
 @media (max-width: 1390px){
@@ -1012,6 +1024,12 @@ footer.footer:before {
     }
 }
 
+@media (max-width: 568px){
+    .why-buy-video {
+        padding-bottom: 56.25% !important;
+    }
+}
+
 @media (max-width: 480px){
     a.mobileMenu-toggle {
         left: 1%;
@@ -1063,7 +1081,7 @@ footer.footer:before {
     }
 
     .col-lg-4.col-md-4.col-sm-4.tel-nav{
-        padding: 8px 0 0 0;
+        padding: 4px 0 0 0;
         margin: 0;
     }
     .talk-live-first-div div {
@@ -1095,6 +1113,24 @@ footer.footer:before {
     }
     .row.bottom-header .bottom-header-logo-divs.col .row.logo-divs-row .logo-divs.right-side.col-md-6 {
         line-height: 18px;
+    }
+    .customer-service-header > p:first-child a{
+            color: #989898 !important;
+            font-size: 11px;
+            font-weight: 500;
+    }
+    .customer-service-header > p:nth-child(2){
+            font-size: 12px;
+            color: #989898 !important;
+            font-weight: 500;
+    }
+    .customer-service-header > p:last-child{
+            color: #989898 !important;
+            font-size: 11px;
+            font-weight: 500;
+    }
+    .customer-service-header > p:first-child span, .customer-service-header > p:last-child span{
+        font-size: 11px;
     }
 }
 

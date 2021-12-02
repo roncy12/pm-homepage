@@ -3764,6 +3764,17 @@ header.header.header--fixed.is-open a.mobileMenu-toggle.is-open{
         font-size: 23px !important;
     }
 }
+
+p.mobile-hide {
+    display: none;
+}
+
+@media screen and (max-width: 1680px) {
+    .Why-buy-title > h1 {
+        padding-top: 0;
+        margin: 0;
+    }
+}
 @media screen and (max-width: 1390px) {
     .satisfaction {
         margin-bottom: 79px;
@@ -3788,8 +3799,8 @@ header.header.header--fixed.is-open a.mobileMenu-toggle.is-open{
     // Why Buy
     .parallaxbag-videoSection.container{
         flex-direction: column;
-        padding-top: 0rem;
-        padding-bottom: 10rem;
+        padding-top: 1rem;
+        padding-bottom: 12rem;
         margin: 0;
         max-width: 100%;
     }
@@ -3840,6 +3851,7 @@ header.header.header--fixed.is-open a.mobileMenu-toggle.is-open{
 
 
 @media screen and (max-width: 480px) {
+
     .parallaxbag-videoSection.container>div{
         padding: 0;
     }
@@ -3860,7 +3872,11 @@ header.header.header--fixed.is-open a.mobileMenu-toggle.is-open{
         display: none;
     }
 }
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 415px) {
+    .parallaxbag-videoSection.container{
+
+        padding-top: 1rem;
+        }
     .satisfaction-mobile img {
         width: 100%;
         display: block;
@@ -3891,5 +3907,8 @@ header.header.header--fixed.is-open a.mobileMenu-toggle.is-open{
     }
     .shob-by-categ > h1 {
         margin-bottom: 6%;
+    }
+    .to-hide{
+        display: none;
     }
 }
